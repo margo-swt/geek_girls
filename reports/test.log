@@ -978,3 +978,142 @@ assert 400 == 201
 2025-04-03 01:42:35,713 - INFO - SQL-based user registration test completed successfully
 2025-04-03 01:42:35,722 - INFO - Database file cleaned up
 2025-04-03 01:42:35,808 - INFO - Test cleanup completed
+2025-04-03 01:58:53,386 - INFO - Starting empty fields validation test
+2025-04-03 01:58:54,958 - INFO - Empty fields validation test completed successfully
+2025-04-03 01:58:55,103 - INFO - Starting empty fields API validation test
+2025-04-03 01:58:55,754 - INFO - Response status code: 400
+2025-04-03 01:58:55,755 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 01:58:55,755 - INFO - Empty fields API validation test completed successfully
+2025-04-03 01:58:56,355 - INFO - Test setup completed
+2025-04-03 01:58:56,356 - INFO - Cleared screenshots directory
+2025-04-03 01:58:56,360 - INFO - Verifying SQL table creation and data...
+2025-04-03 01:58:56,360 - INFO - Table structure:
+2025-04-03 01:58:56,360 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 01:58:56,360 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:58:56,360 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:58:56,361 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:58:56,361 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:58:56,361 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 01:58:56,361 - INFO - Number of rows in table: 5
+2025-04-03 01:58:56,361 - INFO - Sample data:
+2025-04-03 01:58:56,361 - INFO - ID: 1, Name: Alexander Thomas, Email: cmcdowell_20250403_015856_0@example.com, Created: 2025-04-02 21:58:56
+2025-04-03 01:58:56,361 - INFO - ID: 2, Name: Kimberly Young, Email: kcarson_20250403_015856_1@example.com, Created: 2025-04-02 21:58:56
+2025-04-03 01:58:56,361 - INFO - ID: 3, Name: Mark Harrison, Email: alexandrapatel_20250403_015856_2@example.com, Created: 2025-04-02 21:58:56
+2025-04-03 01:58:56,362 - INFO - Starting SQL-based user registration test
+2025-04-03 01:58:56,362 - INFO - Retrieved test user data: Alexander Thomas (cmcdowell_20250403_015856_0@example.com)
+2025-04-03 01:58:57,513 - INFO - Navigated to Add User page
+2025-04-03 01:58:57,772 - INFO - Filled in user registration form with SQL data
+2025-04-03 01:58:57,841 - INFO - Screenshot saved: screenshots/20250403_015857_registration_form_filled.png
+2025-04-03 01:58:57,853 - INFO - Retrieved actual values from form:
+2025-04-03 01:58:57,853 - INFO - First Name: Expected 'Alexander', Got 'Alexander'
+2025-04-03 01:58:57,853 - INFO - Last Name: Expected 'Thomas', Got 'Thomas'
+2025-04-03 01:58:57,853 - INFO - Email: Expected 'cmcdowell_20250403_015856_0@example.com', Got 'cmcdowell_20250403_015856_0@example.com'
+2025-04-03 01:58:57,853 - INFO - Form values match database values
+2025-04-03 01:58:57,879 - INFO - Submitted user registration form
+2025-04-03 01:58:59,974 - INFO - Screenshot saved: screenshots/20250403_015859_registration_form_submitted.png
+2025-04-03 01:59:20,529 - INFO - Sending API request with form values:
+2025-04-03 01:59:20,530 - INFO - First Name: Alexander
+2025-04-03 01:59:20,530 - INFO - Last Name: Thomas
+2025-04-03 01:59:20,531 - INFO - Email: cmcdowell_20250403_015856_0@example.com
+2025-04-03 01:59:20,531 - INFO - Password: **********
+2025-04-03 01:59:21,266 - INFO - API Response Status Code: 400
+2025-04-03 01:59:21,267 - ERROR - API Response Body: {"message":"Email address is already in use"}
+2025-04-03 01:59:21,267 - INFO - API request correctly rejected duplicate email
+2025-04-03 01:59:21,267 - INFO - SQL-based user registration test completed successfully
+2025-04-03 01:59:21,267 - INFO - SQL-based user registration test completed successfully
+2025-04-03 01:59:21,276 - INFO - Database file cleaned up
+2025-04-03 01:59:21,356 - INFO - Test cleanup completed
+2025-04-03 01:59:22,656 - INFO - Test setup completed
+2025-04-03 01:59:22,657 - INFO - Testing login with registered user credentials
+2025-04-03 01:59:23,425 - INFO - Test cleanup completed
+2025-04-03 02:01:47,804 - INFO - Starting empty fields validation test
+2025-04-03 02:01:49,383 - INFO - Empty fields validation test completed successfully
+2025-04-03 02:01:49,561 - INFO - Starting empty fields API validation test
+2025-04-03 02:01:50,215 - INFO - Response status code: 400
+2025-04-03 02:01:50,216 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 02:01:50,216 - INFO - Empty fields API validation test completed successfully
+2025-04-03 02:01:50,834 - INFO - Test setup completed
+2025-04-03 02:01:50,834 - INFO - Cleared screenshots directory
+2025-04-03 02:01:50,839 - INFO - Verifying SQL table creation and data...
+2025-04-03 02:01:50,839 - INFO - Table structure:
+2025-04-03 02:01:50,839 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 02:01:50,839 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:01:50,840 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:01:50,840 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:01:50,840 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:01:50,840 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 02:01:50,840 - INFO - Number of rows in table: 5
+2025-04-03 02:01:50,840 - INFO - Sample data:
+2025-04-03 02:01:50,840 - INFO - ID: 1, Name: Natasha Mcintyre, Email: christine61_20250403_020150_0@example.com, Created: 2025-04-02 22:01:50
+2025-04-03 02:01:50,840 - INFO - ID: 2, Name: Anthony Davidson, Email: fbentley_20250403_020150_1@example.com, Created: 2025-04-02 22:01:50
+2025-04-03 02:01:50,840 - INFO - ID: 3, Name: Andrew Scott, Email: dereklogan_20250403_020150_2@example.com, Created: 2025-04-02 22:01:50
+2025-04-03 02:01:50,840 - INFO - Starting SQL-based user registration test
+2025-04-03 02:01:50,840 - INFO - Retrieved test user data: Natasha Mcintyre (christine61_20250403_020150_0@example.com)
+2025-04-03 02:01:52,036 - INFO - Navigated to Add User page
+2025-04-03 02:01:52,285 - INFO - Filled in user registration form with SQL data
+2025-04-03 02:01:52,334 - INFO - Screenshot saved: screenshots/20250403_020152_registration_form_filled.png
+2025-04-03 02:01:52,345 - INFO - Retrieved actual values from form:
+2025-04-03 02:01:52,345 - INFO - First Name: Expected 'Natasha', Got 'Natasha'
+2025-04-03 02:01:52,345 - INFO - Last Name: Expected 'Mcintyre', Got 'Mcintyre'
+2025-04-03 02:01:52,345 - INFO - Email: Expected 'christine61_20250403_020150_0@example.com', Got 'christine61_20250403_020150_0@example.com'
+2025-04-03 02:01:52,345 - INFO - Form values match database values
+2025-04-03 02:01:52,370 - INFO - Submitted user registration form
+2025-04-03 02:01:54,448 - INFO - Screenshot saved: screenshots/20250403_020154_registration_form_submitted.png
+2025-04-03 02:02:14,961 - INFO - Sending API request with form values:
+2025-04-03 02:02:14,962 - INFO - First Name: Natasha
+2025-04-03 02:02:14,962 - INFO - Last Name: Mcintyre
+2025-04-03 02:02:14,962 - INFO - Email: christine61_20250403_020150_0@example.com
+2025-04-03 02:02:14,962 - INFO - Password: **********
+2025-04-03 02:02:15,690 - INFO - API Response Status Code: 400
+2025-04-03 02:02:15,691 - ERROR - API Response Body: {"message":"Email address is already in use"}
+2025-04-03 02:02:15,691 - INFO - API request correctly rejected duplicate email
+2025-04-03 02:02:15,691 - INFO - SQL-based user registration test completed successfully
+2025-04-03 02:02:15,699 - INFO - Database file cleaned up
+2025-04-03 02:02:15,786 - INFO - Test cleanup completed
+2025-04-03 02:02:16,381 - INFO - Test setup completed
+2025-04-03 02:02:16,381 - INFO - Testing login with registered user credentials
+2025-04-03 02:02:17,176 - INFO - Test cleanup completed
+2025-04-03 02:04:26,222 - INFO - Starting empty fields validation test
+2025-04-03 02:04:27,805 - INFO - Empty fields validation test completed successfully
+2025-04-03 02:04:28,005 - INFO - Starting empty fields API validation test
+2025-04-03 02:04:28,658 - INFO - Response status code: 400
+2025-04-03 02:04:28,658 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 02:04:28,659 - INFO - Empty fields API validation test completed successfully
+2025-04-03 02:04:29,306 - INFO - Test setup completed
+2025-04-03 02:04:29,306 - INFO - Cleared screenshots directory
+2025-04-03 02:04:29,310 - INFO - Verifying SQL table creation and data...
+2025-04-03 02:04:29,310 - INFO - Table structure:
+2025-04-03 02:04:29,310 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 02:04:29,310 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:04:29,311 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:04:29,311 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:04:29,311 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 02:04:29,311 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 02:04:29,311 - INFO - Number of rows in table: 5
+2025-04-03 02:04:29,311 - INFO - Sample data:
+2025-04-03 02:04:29,311 - INFO - ID: 1, Name: Jimmy Lopez, Email: dorseymarcus_20250403_020429_0@example.com, Created: 2025-04-02 22:04:29
+2025-04-03 02:04:29,311 - INFO - ID: 2, Name: Monica Holt, Email: chrisguzman_20250403_020429_1@example.com, Created: 2025-04-02 22:04:29
+2025-04-03 02:04:29,311 - INFO - ID: 3, Name: Laurie Peters, Email: james04_20250403_020429_2@example.com, Created: 2025-04-02 22:04:29
+2025-04-03 02:04:29,311 - INFO - Starting SQL-based user registration test
+2025-04-03 02:04:29,311 - INFO - Retrieved test user data: Jimmy Lopez (dorseymarcus_20250403_020429_0@example.com)
+2025-04-03 02:04:30,434 - INFO - Navigated to Add User page
+2025-04-03 02:04:30,654 - INFO - Filled in user registration form with SQL data
+2025-04-03 02:04:30,726 - INFO - Screenshot saved: screenshots/20250403_020430_registration_form_filled.png
+2025-04-03 02:04:30,738 - INFO - Retrieved actual values from form:
+2025-04-03 02:04:30,738 - INFO - First Name: Expected 'Jimmy', Got 'Jimmy'
+2025-04-03 02:04:30,738 - INFO - Last Name: Expected 'Lopez', Got 'Lopez'
+2025-04-03 02:04:30,738 - INFO - Email: Expected 'dorseymarcus_20250403_020429_0@example.com', Got 'dorseymarcus_20250403_020429_0@example.com'
+2025-04-03 02:04:30,738 - INFO - Form values match database values
+2025-04-03 02:04:30,764 - INFO - Submitted user registration form
+2025-04-03 02:04:32,842 - INFO - Screenshot saved: screenshots/20250403_020432_registration_form_submitted.png
+2025-04-03 02:04:53,407 - INFO - Sending API request with form values:
+2025-04-03 02:04:53,409 - INFO - First Name: Jimmy
+2025-04-03 02:04:53,409 - INFO - Last Name: Lopez
+2025-04-03 02:04:53,409 - INFO - Email: dorseymarcus_20250403_020429_0@example.com
+2025-04-03 02:04:53,409 - INFO - Password: **********
+2025-04-03 02:04:54,144 - INFO - API Response Status Code: 400
+2025-04-03 02:04:54,145 - ERROR - API Response Body: {"message":"Email address is already in use"}
+2025-04-03 02:04:54,145 - INFO - API request correctly rejected duplicate email
+2025-04-03 02:04:54,145 - INFO - SQL-based user registration test completed successfully
+2025-04-03 02:04:54,158 - INFO - Database file cleaned up
+2025-04-03 02:04:54,240 - INFO - Test cleanup completed

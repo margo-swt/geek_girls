@@ -217,3 +217,4 @@ class TestSQLUserRegistration(BaseTest):
             raise
         
         logger.info("SQL-based user registration test completed successfully") 
+        
