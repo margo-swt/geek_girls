@@ -1,9 +1,7 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 import requests
 import logging
+from config.webdriver_config import WebDriverConfig
 
 class BaseTest:
     """Base class for all test classes"""
@@ -18,15 +16,8 @@ class BaseTest:
         )
         self.logger = logging.getLogger('test_logger')
         
-        # Setup Chrome options
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')  # Run in headless mode
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        
-        # Initialize WebDriver
-        self.driver = webdriver.Chrome(options=chrome_options)
-        self.driver.implicitly_wait(10)
+        # Initialize WebDriver using WebDriverConfig
+        self.driver = WebDriverConfig.get_chrome_driver()
         
         # Initialize requests session
         self.session = requests.Session()

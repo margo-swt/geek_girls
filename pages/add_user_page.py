@@ -75,4 +75,16 @@ class AddUserPage(BasePage):
             error_element = self.wait_for_element_visible(self.ERROR_MESSAGE, timeout=5)
             return error_element.text
         except:
-            return None 
+            return None
+
+    def get_first_name(self):
+        """Get the value of the first name field"""
+        return self.driver.find_element(*self.FIRST_NAME_INPUT).get_attribute('value')
+    
+    def get_last_name(self):
+        """Get the value of the last name field"""
+        return self.driver.find_element(*self.LAST_NAME_INPUT).get_attribute('value')
+    
+    def get_email(self):
+        """Get the value of the email field"""
+        return self.driver.find_element(*self.EMAIL_INPUT).get_attribute('value') 
