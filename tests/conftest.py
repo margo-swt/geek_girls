@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 from utils.logger import setup_logger
 from utils.test_utils import take_screenshot
+import logging
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -28,9 +30,32 @@ def pytest_configure(config):
 @pytest.fixture(scope="session")
 def logger():
     """
-    Setup logger for the test session
+    Fixture to provide logging functionality
     """
-    return setup_logger("test_session")
+    # Create a logger
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    
+    # Create a file handler
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = f"logs/test_{timestamp}.log"
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(logging.INFO)
+    
+    # Create a console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    
+    # Create a formatter
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    console_handler.setFormatter(formatter)
+    
+    # Add handlers to logger
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
 
 @pytest.fixture(scope="session")
 def base_url():
@@ -54,16 +79,18 @@ def test_data():
 @pytest.fixture(scope="session")
 def browser_type():
     """
-    Get browser type from environment variable
+    Fixture to specify the browser type
+    Default is 'chrome'
     """
-    return os.getenv("BROWSER_TYPE", "chrome")
+    return 'chrome'
 
-@pytest.fixture(scope="session")
-def headless():
-    """
-    Get headless mode from environment variable
-    """
-    return os.getenv("HEADLESS", "false").lower() == "true"
+# @pytest.fixture(scope="session")
+# def headless():
+#     """
+#     Fixture to specify if browser should run in headless mode
+#     Default is False (non-headless)
+#     """
+#     return False
 
 @pytest.fixture(scope="session")
 def download_dir():

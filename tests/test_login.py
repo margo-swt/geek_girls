@@ -92,12 +92,12 @@ class TestLogin:
             raise
 
     @pytest.mark.regression
-    def test_forgot_password_link(self, setup, logger):
+    def test_signup_link(self, setup, logger):
         """
-        Test forgot password link functionality
+        Test signup link functionality
         """
         driver, login_page = setup
-        test_id = generate_test_id("forgot_password")
+        test_id = generate_test_id("signup_link")
         logger.info(f"Starting test: {test_id}")
         
         try:
@@ -106,9 +106,9 @@ class TestLogin:
             login_page.navigate_to()
             assert login_page.is_login_page_displayed(), "Login page should be displayed"
             
-            logger.info("Clicking forgot password link")
-            assert login_page.click_forgot_password(), "Forgot password link should be clickable"
-            # Add assertions for forgot password page
+            logger.info("Clicking signup link")
+            assert login_page.click_signup_link(), "Signup link should be clickable"
+            # Add assertions for signup page
             
             logger.info("Test completed successfully")
         except Exception as e:
