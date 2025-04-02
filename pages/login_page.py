@@ -3,15 +3,15 @@ from .base_page import BasePage
 
 class LoginPage(BasePage):
     # Locators
-    USERNAME_INPUT = (By.ID, "username")
+    EMAIL_INPUT = (By.ID, "email")
     PASSWORD_INPUT = (By.ID, "password")
-    LOGIN_BUTTON = (By.ID, "login-button")
+    LOGIN_BUTTON = (By.ID, "submit")
+    SIGNUP_LINK = (By.LINK_TEXT, "Not yet a user? Click here to sign up!")
     ERROR_MESSAGE = (By.CLASS_NAME, "error-message")
-    FORGOT_PASSWORD_LINK = (By.LINK_TEXT, "Forgot Password?")
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = "https://example.com/login"  # Replace with your actual login page URL
+        self.url = "https://thinking-tester-contact-list.herokuapp.com/"
 
     def navigate_to(self):
         """
@@ -19,15 +19,15 @@ class LoginPage(BasePage):
         """
         self.driver.get(self.url)
 
-    def login(self, username: str, password: str) -> bool:
+    def login(self, email: str, password: str) -> bool:
         """
         Perform login action
-        :param username: Username to enter
+        :param email: Email to enter
         :param password: Password to enter
         :return: True if login successful, False otherwise
         """
         try:
-            self.input_text(self.USERNAME_INPUT, username)
+            self.input_text(self.EMAIL_INPUT, email)
             self.input_text(self.PASSWORD_INPUT, password)
             return self.click_element(self.LOGIN_BUTTON)
         except Exception:
@@ -40,18 +40,18 @@ class LoginPage(BasePage):
         """
         return self.get_text(self.ERROR_MESSAGE) or ""
 
-    def click_forgot_password(self) -> bool:
+    def click_signup_link(self) -> bool:
         """
-        Click on forgot password link
+        Click on signup link
         :return: True if clicked, False otherwise
         """
-        return self.click_element(self.FORGOT_PASSWORD_LINK)
+        return self.click_element(self.SIGNUP_LINK)
 
     def is_login_page_displayed(self) -> bool:
         """
         Check if login page is displayed
         :return: True if login page is displayed, False otherwise
         """
-        return bool(self.find_element(self.USERNAME_INPUT) and 
+        return bool(self.find_element(self.EMAIL_INPUT) and 
                    self.find_element(self.PASSWORD_INPUT) and 
                    self.find_element(self.LOGIN_BUTTON)) 

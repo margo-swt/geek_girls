@@ -2,6 +2,7 @@ import os
 import time
 from datetime import datetime
 from typing import Optional
+import uuid
 
 def take_screenshot(driver, name: str) -> Optional[str]:
     """
@@ -41,9 +42,8 @@ def wait_for_file_download(directory: str, timeout: int = 30) -> bool:
 
 def generate_test_id(test_name: str) -> str:
     """
-    Generate a unique test ID
-    :param test_name: Name of the test
-    :return: Unique test ID
+    Generate a unique test ID combining timestamp and UUID
     """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    return f"{test_name}_{timestamp}" 
+    unique_id = str(uuid.uuid4())[:8]
+    return f"{test_name}_{timestamp}_{unique_id}" 
