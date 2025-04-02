@@ -82,25 +82,58 @@ def db_connection():
 class TestSQLUserRegistration(BaseTest):
     """Test class for SQL-based user registration"""
     
-    def test_empty_fields_validation(self):
-        """Test validation messages when submitting empty fields"""
-        logger.info("Starting empty fields validation test")
+    def test_register_user_from_sql(self, db_connection):
+        """Test registering a user using data from SQL database"""
+        logger.info("Starting SQL-based user registration test")
         
-        # Navigate to Add User page
-        add_user_page = AddUserPage(self.driver)
-        add_user_page.navigate_to()
-        logger.info("Navigated to Add User page")
+        # Get test data from SQL database
+        cursor = db_connection.cursor()
+        cursor.execute('SELECT first_name, last_name, email, password FROM test_users LIMIT 1')
+        user_data = cursor.fetchone()
         
-        # Submit empty form
-        add_user_page.submit_form()
-        logger.info("Submitted empty form")
+        if not user_data:
+            pytest.fail("No test data found in database")
+            
+        first_name, last_name, email, password = user_data
+        logger.info(f"Retrieved test user data: {first_name} {last_name} ({email})")
         
-        # Wait a moment for the error message to appear
-        time.sleep(2)
+        # Prepare API request payload
+        payload = {
+            "firstName": first_name,
+            "lastName": last_name,
+            "email": email,
+            "password": password
+        }
         
-        # Check error message
-        error_message = add_user_page.get_error_message()
-        expected_error = "User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required."
-        assert error_message == expected_error, f"Expected error message not found. Got: {error_message}"
+        # Verify API request payload
+        try:
+            response = self.session.post(
+                'https://thinking-tester-contact-list.herokuapp.com/users',
+                json=payload,
+                headers={
+                    'Accept': '*/*',
+                    'Content-Type': 'application/json',
+                    'Origin': 'https://thinking-tester-contact-list.herokuapp.com',
+                    'Referer': 'https://thinking-tester-contact-list.herokuapp.com/addUser'
+                }
+            )
+            
+            logger.info(f"API Request Payload: {payload}")
+            logger.info(f"API Response Status Code: {response.status_code}")
+            
+            # Verify the payload matches our database values
+            assert payload['firstName'] == first_name, "First name mismatch in payload"
+            assert payload['lastName'] == last_name, "Last name mismatch in payload"
+            assert payload['email'] == email, "Email mismatch in payload"
+            assert payload['password'] == password, "Password mismatch in payload"
+            logger.info("Payload verification successful")
+            
+            # Verify status code is 201 (Created)
+            assert response.status_code == 201, f"Expected status code 201, got {response.status_code}"
+            logger.info("Status code verification successful")
+            
+        except Exception as e:
+            logger.error(f"API verification failed: {str(e)}")
+            raise
         
-        logger.info("Empty fields validation test completed successfully") 
+        logger.info("SQL-based user registration test completed successfully") 

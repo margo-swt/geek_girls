@@ -207,3 +207,113 @@
 2025-04-03 00:46:30,096 - INFO - Submitted empty form
 2025-04-03 00:46:32,125 - INFO - Empty fields validation test completed successfully
 2025-04-03 00:46:32,199 - INFO - Test cleanup completed
+2025-04-03 00:49:36,871 - INFO - Starting empty fields validation test
+2025-04-03 00:49:38,449 - INFO - Empty fields validation test completed successfully
+2025-04-03 00:49:38,597 - INFO - Starting empty fields API validation test
+2025-04-03 00:49:39,225 - INFO - Response status code: 400
+2025-04-03 00:49:39,226 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 00:49:39,227 - INFO - Empty fields API validation test completed successfully
+2025-04-03 00:49:39,243 - INFO - Starting SQL operations test
+2025-04-03 00:49:39,243 - INFO - Executing SELECT query
+2025-04-03 00:49:39,243 - INFO - Found 3 users in the database
+2025-04-03 00:49:39,243 - INFO - Executing SELECT with WHERE clause
+2025-04-03 00:49:39,243 - INFO - Found user: (1, 'John', 'Doe', 'john.doe@example.com', '2025-04-02 20:49:39')
+2025-04-03 00:49:39,244 - INFO - Executing INSERT operation
+2025-04-03 00:49:39,244 - INFO - Executing UPDATE operation
+2025-04-03 00:49:39,245 - INFO - Executing DELETE operation
+2025-04-03 00:49:39,245 - INFO - Creating and querying related tables
+2025-04-03 00:49:39,246 - INFO - Executing JOIN query
+2025-04-03 00:49:39,247 - INFO - Found 3 user profiles
+2025-04-03 00:49:39,247 - INFO - Executing aggregate functions
+2025-04-03 00:49:39,247 - INFO - Total number of users: 3
+2025-04-03 00:49:39,247 - INFO - Executing GROUP BY query
+2025-04-03 00:49:39,247 - INFO - Location statistics: [('San Francisco', 1)]
+2025-04-03 00:49:39,247 - INFO - Final user count: 3
+2025-04-03 00:49:39,248 - INFO - SQL operations test completed successfully
+2025-04-03 00:49:39,688 - INFO - Test setup completed
+2025-04-03 00:49:39,690 - INFO - Starting empty fields validation test
+2025-04-03 00:49:40,827 - INFO - Navigated to Add User page
+2025-04-03 00:49:40,867 - INFO - Submitted empty form
+2025-04-03 00:49:42,904 - INFO - Empty fields validation test completed successfully
+2025-04-03 00:49:42,977 - INFO - Test cleanup completed
+2025-04-03 00:59:12,339 - INFO - Test setup completed
+2025-04-03 00:59:12,350 - INFO - Verifying SQL table creation and data...
+2025-04-03 00:59:12,350 - INFO - Table structure:
+2025-04-03 00:59:12,350 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 00:59:12,350 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 00:59:12,350 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 00:59:12,350 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 00:59:12,350 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 00:59:12,350 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 00:59:12,351 - INFO - Number of rows in table: 5
+2025-04-03 00:59:12,351 - INFO - Sample data:
+2025-04-03 00:59:12,351 - INFO - ID: 1, Name: Jessica Brown, Email: sheaedward@example.com, Created: 2025-04-02 20:59:12
+2025-04-03 00:59:12,351 - INFO - ID: 2, Name: Sara Lowe, Email: atkinsondanielle@example.net, Created: 2025-04-02 20:59:12
+2025-04-03 00:59:12,351 - INFO - ID: 3, Name: Robert Young, Email: kimdavid@example.com, Created: 2025-04-02 20:59:12
+2025-04-03 00:59:12,352 - INFO - Starting SQL-based user registration test
+2025-04-03 00:59:12,352 - INFO - Retrieved test user data: Jessica Brown (sheaedward@example.com)
+2025-04-03 00:59:13,082 - INFO - API Request Payload: {'firstName': 'Jessica', 'lastName': 'Brown', 'email': 'sheaedward@example.com', 'password': '(7WGSx!6C!'}
+2025-04-03 00:59:13,082 - INFO - API Response Status Code: 201
+2025-04-03 00:59:13,082 - INFO - Payload verification successful
+2025-04-03 00:59:13,082 - INFO - Status code verification successful
+2025-04-03 00:59:13,082 - INFO - SQL-based user registration test completed successfully
+2025-04-03 00:59:13,083 - INFO - Database file cleaned up
+2025-04-03 00:59:13,159 - INFO - Test cleanup completed
+2025-04-03 01:00:55,120 - INFO - Starting empty fields validation test
+2025-04-03 01:00:56,708 - INFO - Empty fields validation test completed successfully
+2025-04-03 01:00:56,843 - INFO - Starting empty fields API validation test
+2025-04-03 01:00:57,479 - INFO - Response status code: 400
+2025-04-03 01:00:57,480 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 01:00:57,480 - INFO - Empty fields API validation test completed successfully
+2025-04-03 01:00:57,911 - INFO - Test setup completed
+2025-04-03 01:00:57,917 - INFO - Verifying SQL table creation and data...
+2025-04-03 01:00:57,917 - INFO - Table structure:
+2025-04-03 01:00:57,917 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 01:00:57,917 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:00:57,917 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:00:57,917 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:00:57,917 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:00:57,917 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 01:00:57,917 - INFO - Number of rows in table: 5
+2025-04-03 01:00:57,917 - INFO - Sample data:
+2025-04-03 01:00:57,917 - INFO - ID: 1, Name: Jesse Miller, Email: kempclaudia@example.com, Created: 2025-04-02 21:00:57
+2025-04-03 01:00:57,917 - INFO - ID: 2, Name: Ernest Weeks, Email: burtoncaitlin@example.org, Created: 2025-04-02 21:00:57
+2025-04-03 01:00:57,917 - INFO - ID: 3, Name: William Bartlett, Email: lmorgan@example.org, Created: 2025-04-02 21:00:57
+2025-04-03 01:00:57,918 - INFO - Starting SQL-based user registration test
+2025-04-03 01:00:57,918 - INFO - Retrieved test user data: Jesse Miller (kempclaudia@example.com)
+2025-04-03 01:00:58,566 - INFO - API Request Payload: {'firstName': 'Jesse', 'lastName': 'Miller', 'email': 'kempclaudia@example.com', 'password': '$dMgUv3!U0'}
+2025-04-03 01:00:58,567 - INFO - API Response Status Code: 201
+2025-04-03 01:00:58,567 - INFO - Payload verification successful
+2025-04-03 01:00:58,567 - INFO - Status code verification successful
+2025-04-03 01:00:58,567 - INFO - SQL-based user registration test completed successfully
+2025-04-03 01:00:58,569 - INFO - Database file cleaned up
+2025-04-03 01:00:58,643 - INFO - Test cleanup completed
+2025-04-03 01:05:29,594 - INFO - Starting empty fields validation test
+2025-04-03 01:05:31,185 - INFO - Empty fields validation test completed successfully
+2025-04-03 01:05:31,320 - INFO - Starting empty fields API validation test
+2025-04-03 01:05:31,957 - INFO - Response status code: 400
+2025-04-03 01:05:31,957 - INFO - Response body: {'errors': {'firstName': {'name': 'ValidatorError', 'message': 'Path `firstName` is required.', 'properties': {'message': 'Path `firstName` is required.', 'type': 'required', 'path': 'firstName', 'value': ''}, 'kind': 'required', 'path': 'firstName', 'value': ''}, 'lastName': {'name': 'ValidatorError', 'message': 'Path `lastName` is required.', 'properties': {'message': 'Path `lastName` is required.', 'type': 'required', 'path': 'lastName', 'value': ''}, 'kind': 'required', 'path': 'lastName', 'value': ''}, 'email': {'name': 'ValidatorError', 'message': 'Email is invalid', 'properties': {'message': 'Email is invalid', 'type': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'kind': 'user defined', 'path': 'email', 'value': '', 'reason': {}}, 'password': {'name': 'ValidatorError', 'message': 'Path `password` is required.', 'properties': {'message': 'Path `password` is required.', 'type': 'required', 'path': 'password', 'value': ''}, 'kind': 'required', 'path': 'password', 'value': ''}}, '_message': 'User validation failed', 'message': 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'}
+2025-04-03 01:05:31,958 - INFO - Empty fields API validation test completed successfully
+2025-04-03 01:05:32,387 - INFO - Test setup completed
+2025-04-03 01:05:32,395 - INFO - Verifying SQL table creation and data...
+2025-04-03 01:05:32,395 - INFO - Table structure:
+2025-04-03 01:05:32,395 - INFO - Column: id, Type: INTEGER, NotNull: 0, Default: None
+2025-04-03 01:05:32,395 - INFO - Column: first_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:05:32,395 - INFO - Column: last_name, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:05:32,395 - INFO - Column: email, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:05:32,395 - INFO - Column: password, Type: TEXT, NotNull: 1, Default: None
+2025-04-03 01:05:32,396 - INFO - Column: created_at, Type: TIMESTAMP, NotNull: 0, Default: CURRENT_TIMESTAMP
+2025-04-03 01:05:32,396 - INFO - Number of rows in table: 5
+2025-04-03 01:05:32,396 - INFO - Sample data:
+2025-04-03 01:05:32,396 - INFO - ID: 1, Name: Carlos Patton, Email: davidwilliams@example.org, Created: 2025-04-02 21:05:32
+2025-04-03 01:05:32,396 - INFO - ID: 2, Name: Lauren Williams, Email: johnsonthomas@example.net, Created: 2025-04-02 21:05:32
+2025-04-03 01:05:32,396 - INFO - ID: 3, Name: Tanya Johnson, Email: wellsandrea@example.org, Created: 2025-04-02 21:05:32
+2025-04-03 01:05:32,397 - INFO - Starting SQL-based user registration test
+2025-04-03 01:05:32,397 - INFO - Retrieved test user data: Carlos Patton (davidwilliams@example.org)
+2025-04-03 01:05:33,059 - INFO - API Request Payload: {'firstName': 'Carlos', 'lastName': 'Patton', 'email': 'davidwilliams@example.org', 'password': 'Bh1OpKXo^4'}
+2025-04-03 01:05:33,059 - INFO - API Response Status Code: 201
+2025-04-03 01:05:33,059 - INFO - Payload verification successful
+2025-04-03 01:05:33,059 - INFO - Status code verification successful
+2025-04-03 01:05:33,059 - INFO - SQL-based user registration test completed successfully
+2025-04-03 01:05:33,061 - INFO - Database file cleaned up
+2025-04-03 01:05:33,135 - INFO - Test cleanup completed
